@@ -56,15 +56,6 @@
     background-color: hsl(154, 100%, 60%);
 }
 
-.form__result {
-    margin: 10px 7px;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 18px;
-}
-
 .form__information {
     font-size: 10px;
 }

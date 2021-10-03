@@ -1,14 +1,29 @@
 import "./style.css"
+import { useState } from "react";
+import { currencies } from "../../currencies";
+import { Result } from "./Result";
 
-const Form = () => {
+
+export const Form = ({ calculateResult, result }) => {
+    const [currency, setCurrency] = useState(currencies[0].short);
+    const [amount, setAmount] = useState("");
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        calculateResult(currency, amount);
+    }
+
+
     return (
-        <form className="form">
+        <form className="form" onSubmit={onSubmit}>
             <fieldset className="form__fieldset">
                 <legend className="form__legend">Kalkulator walut</legend>
                 <p className="form__pragraph">
                     <label className="form__label">
                         <span className="form__labelData">Kwota w PLN:*</span>
                         <input
+                            value={amount}
+                            onChange={({ target }) => setAmount(target.value)}
                             className="form__field"
                             type="number"
                             name="amount"
@@ -21,11 +36,19 @@ const Form = () => {
                 <p className="form__pragraph">
                     <label className="form__label">
                         <span className="form__labelData ">Waluta:</span>
-                        <select className="form__field">
-                            <option value="EUR" selected>EUR</option>
-                            <option value="USD">USD</option>
-                            <option value="GBP">GBP</option>
-                            <option value="CHF">CHF</option>
+                        <select
+                            className="form__field"
+                            value={currency}
+                            onChange={({ target }) => setCurrency(target.value)}
+                        >
+                            {currencies.map((currency => (
+                                <option
+                                    key={currency.short}
+                                    value={currency.short}
+                                >
+                                    {currency.name}
+                                </option>
+                            )))}
                         </select>
                     </label>
                 </p>
@@ -34,7 +57,7 @@ const Form = () => {
                 <button className="form__button">Przelicz</button>
                 <button className="form__button" type="reset">Wyczyść</button>
             </div>
-            <p className="form__result"></p>
+            <Result result={result} />
             <p className="form__information">*pole obowiązkowe</p>
         </form>
     );
