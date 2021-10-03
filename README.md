@@ -12,7 +12,7 @@ https://czarnyzucek.github.io/currency-converter-react/
 ## Used technologies
 
 - HTML
-- CSS (Grid, Flex, Media queries)
+- CSS
 - JavaScript
 - BEM convention
 - React.js
