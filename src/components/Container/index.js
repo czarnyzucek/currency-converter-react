@@ -1,7 +1,7 @@
 import "./style.css"
 
 const Container = ({ children }) => (
-    <div className="wrapper">
+    <div className="container">
         {children}
     </div>
 );
