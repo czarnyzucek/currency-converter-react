@@ -55,7 +55,6 @@ export const Form = ({ calculateResult, result }) => {
             </fieldset>
             <div className="form__buttonsContener">
                 <button className="form__button">Przelicz</button>
-                <button className="form__button" type="reset">Wyczyść</button>
             </div>
             <Result result={result} />
             <p className="form__information">*pole obowiązkowe</p>
