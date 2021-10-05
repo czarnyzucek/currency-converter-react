@@ -1,6 +1,6 @@
-import Header from "./components/Header";
-import Container from "./components/Container";
-import Form from "./components/Form";
+import Header from "./Header";
+import Container from "./Container";
+import Form from "./Form";
 import { useState } from "react";
 import { currencies } from "./currencies";
 
