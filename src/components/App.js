@@ -5,7 +5,6 @@ import { useState } from "react";
 import { currencies } from "./currencies";
 
 function App() {
-
   const [result, setResult] = useState();
 
   const calculateResult = (currency, amount) => {
@@ -18,7 +17,7 @@ function App() {
       targetAmount: amount / rate,
       currency,
     });
-  }
+  };
 
   return (
     <Container>
@@ -28,7 +27,7 @@ function App() {
         calculateResult={calculateResult}
       />
     </Container>
-  )
+  );
 };
 
 export default App;

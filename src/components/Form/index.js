@@ -3,7 +3,6 @@ import { useState } from "react";
 import { currencies } from "../currencies";
 import { Result } from "./Result";
 
-
 export const Form = ({ calculateResult, result }) => {
     const [currency, setCurrency] = useState(currencies[0].short);
     const [amount, setAmount] = useState("");
@@ -11,8 +10,7 @@ export const Form = ({ calculateResult, result }) => {
     const onSubmit = (event) => {
         event.preventDefault();
         calculateResult(currency, amount);
-    }
-
+    };
 
     return (
         <form className="form" onSubmit={onSubmit}>
