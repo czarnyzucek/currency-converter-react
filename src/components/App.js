@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Container from "./Container";
 import Form from "./Form";
+import { Clock } from "./Clock";
 import { useState } from "react";
 import { currencies } from "./currencies";
 
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <Container>
+      <Clock />
       <Header title="Internetowy kantor" />
       <Form
         result={result}
