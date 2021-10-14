@@ -1,4 +1,4 @@
-import "./style.css"
+import { Wrapper, Fieldset, Legend, LabelData, Input, Select, Paragraph, ButtonContainer, Button, Information } from "./styled";
 import { useState } from "react";
 import { currencies } from "../currencies";
 import { Result } from "./Result";
@@ -13,16 +13,15 @@ export const Form = ({ calculateResult, result }) => {
     };
 
     return (
-        <form className="form" onSubmit={onSubmit}>
-            <fieldset className="form__fieldset">
-                <legend className="form__legend">Kalkulator walut</legend>
-                <p className="form__pragraph">
-                    <label className="form__label">
-                        <span className="form__labelData">Kwota w PLN:*</span>
-                        <input
+        <Wrapper onSubmit={onSubmit}>
+            <Fieldset>
+                <Legend>Kalkulator walut</Legend>
+                <Paragraph>
+                    <label>
+                        <LabelData>Kwota w PLN:*</LabelData>
+                        <Input
                             value={amount}
                             onChange={({ target }) => setAmount(target.value)}
-                            className="form__field"
                             type="number"
                             name="amount"
                             step="0.10"
@@ -30,11 +29,11 @@ export const Form = ({ calculateResult, result }) => {
                             required
                         />
                     </label>
-                </p>
-                <p className="form__pragraph">
-                    <label className="form__label">
-                        <span className="form__labelData ">Waluta:</span>
-                        <select
+                </Paragraph>
+                <Paragraph>
+                    <label>
+                        <LabelData className="form__labelData ">Waluta:</LabelData>
+                        <Select
                             className="form__field"
                             value={currency}
                             onChange={({ target }) => setCurrency(target.value)}
@@ -47,16 +46,16 @@ export const Form = ({ calculateResult, result }) => {
                                     {currency.name}
                                 </option>
                             )))}
-                        </select>
+                        </Select>
                     </label>
-                </p>
-            </fieldset>
-            <div className="form__buttonsContener">
-                <button className="form__button">Przelicz</button>
-            </div>
+                </Paragraph>
+            </Fieldset>
+            <ButtonContainer>
+                <Button className="form__button">Przelicz</Button>
+            </ButtonContainer>
             <Result result={result} />
-            <p className="form__information">*pole obowiązkowe</p>
-        </form>
+            <Information className="form__information">*pole obowiązkowe</Information>
+        </Wrapper>
     );
 };
 
